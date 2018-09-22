@@ -12,9 +12,6 @@ class Station(models.Model):
     def __str__(self):
         return self.station    # 在django admin中显示
 
-    def __str__(self):
-        return self.floor
-
     class Meta:
         db_table = "bds_station"  # 自定义表名称
         ordering = ['order']     # 按指定字段排序

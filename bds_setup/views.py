@@ -8,16 +8,6 @@ def bds_setup(request):
     return render(request, "bds_setup/8-bds_setup.html")
 
 
-from django.shortcuts import render  # 导入重定向
-from django.contrib.auth.decorators import login_required
-from .models import Station
-
-
-@login_required
-def bds_setup(request):
-    return render(request, "bds_setup/8-bds_setup.html")
-
-
 @login_required
 def station(request):
     station_detail = Station.objects.all()
