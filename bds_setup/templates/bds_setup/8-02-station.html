@@ -1,7 +1,6 @@
 {# bds_setup/8-02-bds_station.html #}
 {% extends 'bds_main/base.html' %}
 
-
 {% block info_block %}
   <span class="navbar-nav px-3 nav-item text-nowrap text-light">
     当前显示所有区域产线详细工位信息！
@@ -11,13 +10,6 @@
 {% block main_block %}
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
   <div class="d-flex flex-wrap flex-md-wrap pt-3 pb-2 mb-0">
-    <label for="floor">楼层：</label>
-      {% for floor in unique_floor %}
-        <a href="">{{ floor.floor }}楼，</a>
-      {% endfor %}
-      <a href="">所有楼层</a>
-  </div>
-  <div class="d-flex flex-wrap flex-md-wrap pb-2 mb-0">
       <label for="area">区域：</label>
         {% for area in unique_area %}
           <a href="">{{ area.area }}，</a>
