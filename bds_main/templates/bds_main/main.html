@@ -1,0 +1,18 @@
+{% extends 'bds_main/base.html' %}
+
+{% block info_block %}
+  <span class="navbar-nav px-3 nav-item text-nowrap text-light">
+    在这里显示警示信息
+  </span>
+{% endblock %}
+
+{% block main_block %}
+  <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h6">控制面板</h1>
+      </div>
+      <div>
+        在这里显示前一天各区域的报废数据，按区域按产线按工位
+      </div>
+  </main>
+{% endblock %}

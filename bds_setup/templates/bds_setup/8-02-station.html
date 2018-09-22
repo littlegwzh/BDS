@@ -1,0 +1,76 @@
+{# bds_setup/8-02-bds_station.html #}
+{% extends 'bds_main/base.html' %}
+
+
+{% block info_block %}
+  <span class="navbar-nav px-3 nav-item text-nowrap text-light">
+    当前显示所有区域产线详细工位信息！
+  </span>
+{% endblock %}
+
+{% block main_block %}
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+  <div class="d-flex flex-wrap flex-md-wrap pt-3 pb-2 mb-0">
+    <label for="floor">楼层：</label>
+      {% for floor in unique_floor %}
+        <a href="">{{ floor.floor }}楼，</a>
+      {% endfor %}
+      <a href="">所有楼层</a>
+  </div>
+  <div class="d-flex flex-wrap flex-md-wrap pb-2 mb-0">
+      <label for="area">区域：</label>
+        {% for area in unique_area %}
+          <a href="">{{ area.area }}，</a>
+        {% endfor %}
+        <a href="">所有区域</a>
+  </div>
+  <div class="d-flex flex-wrap flex-md-wrap pb-2 mb-0">
+      <label for="area">产线：</label>
+        {% for line in unique_line %}
+          <a href="">{{ line.line }}，</a>
+        {% endfor %}
+        <a href="">所有产线</a>
+  </div>
+  <!--
+  <div class="btn-group d-flex flex-wrap flex-md-nowrap pt-3 pb-2 mb-0">
+    <button id="btn_add" type="button" class="btn btn-outline-secondary btn-sm">
+        <span data-feather="plus"></span>新增
+    </button>
+    <button id="btn_edit" type="button" class="btn btn-outline-secondary btn-sm">
+        <span data-feather="edit-2"></span>修改
+    </button>
+    <button id="btn_delete" type="button" class="btn btn-outline-secondary btn-sm">
+        <span data-feather="x"></span>删除
+    </button>
+  </div>
+  -->
+  <!-- 
+    <div>
+      <table data-pagination="true" data-page-list="[10,25,50,100,ALL]" data-search="true" data-toggle="table" showExport="true">
+          <thead>
+            <tr>
+                <th data-sortable="true" data-editable="true">序号</th>
+                <th data-sortable="true" data-editable="true">区域</th>
+                <th data-sortable="true">产线</th>
+                <th data-sortable="true">工位</th>
+                <th data-sortable="true">工位顺序</th>
+                <th data-sortable="true">楼层</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for station in station_detail %}
+            <tr> 
+                <td>{{ station.id }}</td>
+                <td>{{ station.area }}</td>
+                <td>{{ station.line }}</td>
+                <td>{{ station.station }}</td>
+                <td>{{ station.order }}</td>
+                <td>{{ station.floor }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+      </table>
+  </div>
+-->
+</main>
+{% endblock %}

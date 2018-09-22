@@ -1,0 +1,48 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="../../../static/images/favicon.ico">
+
+  <title>登录BDS</title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    crossorigin="anonymous">
+
+  <!-- Custom styles for this template -->
+  <link href="../../../static/css/signin.css" rel="stylesheet">
+</head>
+
+<body class="text-center">
+  <form class="form-signin" method="post" action="{% url "bds_main:bds_login" %}">
+    <img class="mb-4" src="../../../static/images/bdslogo.png" alt="" width="118" height="118">
+    {% csrf_token %}
+    <h1 class="h3 mb-3 font-weight-normal">欢迎使用BDS</h1>
+    <label for="inputeid" class="sr-only">工号</label>
+    <input type="text" name="inputeid" class="form-control" placeholder="输入工号" required autofocus>
+    <label for="inputpassword" class="sr-only">密码</label>
+    <input type="password" name="inputpassword" class="form-control" placeholder="输入密码" required>
+    <!--
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> 记住密码
+      </label>
+    </div>
+    -->
+    <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+    {% if errorMsg != '' %}
+        <div class="form-group text-center m-t-20 text-danger">
+            {{ errorMsg }}
+        </div>
+    {% endif %}
+    <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+  </form>
+</body>
+
+</html>

@@ -1,0 +1,182 @@
+<!doctype html>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="../../../static/images/favicon.ico">
+
+  <title>BDS</title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="../../../static/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    crossorigin="anonymous">
+
+  <!-- Bootstrap table CSS-->
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.css">
+  
+
+  <!-- Custom styles for this template -->
+  <link href="../../../static/css/dashboard.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-dark fixed-top flex-md-nowrap p-0 shadow", style="background-color:midnightblue">
+            <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">BDS v2.0.1</a>
+            {% block info_block %}
+            {% endblock %}
+                <span class="navbar-nav px-3 nav-item text-nowrap text-light">
+                    {{user.username}}
+                    <a class="nav-link" href="{% url 'bds_main:bds_logout' %}">退出</a>
+                </span>
+        </nav>
+        <div class="row flex-xl-nowrap">
+          
+            <div class="col-md-auto col-xl-2 bd-sidebar">
+                <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                    <div class="sidebar-sticky">
+                      <ul class="nav flex-column">
+                        <li class="nav-item">
+                          <a class="nav-link" href="{% url 'bds_main:bds_main' %}">
+                            <span data-feather="home"></span>
+                            0-控制面板
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">
+                            <span data-feather="file"></span>
+                            1-报废登记
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">
+                            <span data-feather="users"></span>
+                            2-员工管理
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">
+                            <span data-feather="check-square"></span>
+                            3-LOP 管理
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">
+                            <span data-feather="bar-chart-2"></span>
+                            4-报告汇总
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">
+                            <span data-feather="flag"></span>
+                            5-项目管理
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">
+                            <span data-feather="repeat"></span>
+                            6-盘点管理
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#EQbudget" data-toggle="collapse">
+                            <span data-feather="edit"></span>
+                            7-预算管理
+                            <span data-feather="chevron-down"></span>
+                          </a>
+                          <ul id="EQbudget" class="nav-item collapse flex-column">
+                            <li><a class="nav-link" href="#">7-01-DL人头</a></li>
+                            <li><a class="nav-link" href="#">7-02-POH人头</a></li>
+                            <li><a class="nav-link" href="#">7-03-生产MRC</a></li>
+                            <li><a class="nav-link" href="#">7-04-维修MRC</a></li>
+                            <li><a class="nav-link" href="#">7-05-生产CAPEX</a></li>
+                            <li><a class="nav-link" href="#">7-06-维修CAPEX</a></li>
+                          </ul>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#systemsetting" data-toggle="collapse">
+                            <span data-feather="settings"></span>
+                            8-系统设置
+                            <span data-feather="chevron-down"></span>
+                          </a>
+                          <ul id="systemsetting" class="nav-item collapse flex-column">
+                            <li><a class="nav-link" href="#">8-01-BOM物料清单</a></li>
+                            <li><a class="nav-link" href="{% url 'bds_setup:station' %}">8-02-产线工位信息</a></li>
+                            <li><a class="nav-link" href="#">8-03-缝纫报废矩阵</a></li>
+                          </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                              <span data-feather="info"></span>
+                              9-更新说明
+                              <div>
+                              </div>
+                            </a>
+                          </li>
+                      </ul>
+                    <!--
+                      <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                        <span>常用报告</span>
+                        <a class="d-flex align-items-center text-muted" href="#">
+                          <span data-feather="plus-circle"></span>
+                        </a>
+                      </h6>
+                      <ul class="nav flex-column mb-2">
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">
+                            <span data-feather="file-text"></span>
+                            Current month
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">
+                            <span data-feather="file-text"></span>
+                            Last quarter
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">
+                            <span data-feather="file-text"></span>
+                            Social engagement
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">
+                            <span data-feather="file-text"></span>
+                            Year-end sale
+                          </a>
+                        </li>
+                      </ul>
+                    -->
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    {% block main_block %}
+    {% endblock %}
+  <!-- Bootstrap core JavaScript================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"  crossorigin="anonymous"></script>
+  <script src="../../../static/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+  <!-- Bootstrap table JavaScript================================================== -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.js"></script>
+  <script src="../../../static/dist/extensions/export/bootstrap-table-export.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/locale/bootstrap-table-zh-CN.min.js"></script>
+  
+  
+  <!-- Icons -->
+  <script src="../../../static/js/feather.min.js"></script>
+  <script>
+    feather.replace()
+  </script>
+
+</body>
+
+
+</html>
